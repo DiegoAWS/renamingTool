@@ -1,0 +1,59 @@
+{
+    "name": "dashboard",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build": "rollup --config",
+        "deploy": "npm run build && clasp push",
+        "lint:fix": "eslint ./src --ext .jsx,.js,.ts,.tsx --quiet --fix --ignore-path ./.gitignore",
+        "lint:format": "prettier  --loglevel warn --write \"./**/*.{js,jsx,ts,tsx,css,md,json}\" "
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@types/google-apps-script": "^1.0.47"
+    },
+    "devDependencies": {
+        "@babel/eslint-parser": "^7.18.2",
+        "@babel/plugin-proposal-decorators": "^7.18.2",
+        "@babel/plugin-transform-runtime": "^7.18.2",
+        "@babel/preset-env": "^7.18.2",
+        "@rollup/plugin-babel": "^5.3.1",
+        "@rollup/plugin-node-resolve": "^13.3.0",
+        "eslint": "^8.16.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-googleappsscript": "^1.0.4",
+        "eslint-plugin-import": "^2.26.0",
+        "eslint-plugin-prettier": "^4.0.0",
+        "pre-commit": "^1.2.2",
+        "prettier": "^2.6.2",
+        "rollup": "^2.74.1",
+        "rollup-plugin-copy": "^3.4.0"
+    },
+    "pre-commit": [
+        "lint:format"
+    ],
+    "babel": {
+        "presets": [
+            [
+                "@babel/preset-env",
+                {
+                    "targets": {
+                        "node": "current"
+                    }
+                }
+            ]
+        ],
+        "plugins": [
+            "@babel/plugin-transform-runtime",
+            [
+                "@babel/plugin-proposal-decorators",
+                {
+                    "legacy": true
+                }
+            ]
+        ]
+    }
+}

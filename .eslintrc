@@ -1,0 +1,17 @@
+{
+    "extends": ["eslint:recommended", "plugin:prettier/recommended"],
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+        "ecmaVersion": 2020,
+        "sourceType": "module"
+    },
+    "plugins": ["googleappsscript", "prettier"],
+    "rules": {
+        "prettier/prettier": "error",
+        "no-unused-vars": "off" // functions aren't used.
+    },
+    "env": {
+        "googleappsscript/googleappsscript": true,
+        "es6": true
+    }
+}
